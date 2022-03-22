@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<form class="form" action="#" required>
+    <input class="input" type="number">
+    <button type="submit">submit</button>
+</form>
+<p class="result">Result :</p>
+
+<script>
+    const secontForm = document.querySelector(".form");
+    const secontInput = document.querySelector(".input");
+    const result = document.querySelector(".result")
+    const MILLISECOND_KUN = 86400000;
+    const MILLISECOND_SOAT= 360000;
+
+    const MILLISECOND_MINUT = 60000;
+    const MILLISECOND_MILLISEC = 1000;
+
+
+    secontForm.addEventListener("submit", function(evt) {
+    evt.preventDefault();
+
+const inputvalue =secontInput.value;
+
+const resultat = Math.floor (inputvalue / MILLISECOND_KUN);
+const milliSecond = Math.floor((inputvalue % MILLISECOND_KUN) / MILLISECOND_SOAT);
+const milliMinut = Math.floor(inputvalue / MILLISECOND_MINUT);
+const secont = Math.floor((inputvalue % MILLISECOND_MINUT) / MILLISECOND_MILLISEC);
+
+
+
+ result.textContent = `Result: ${resultat} kun,  ${milliSecond} soat, ${milliMinut} minut, ${secont} secont ${inputvalue} millisecond` ;
+
+//  const hours = Math.floor(seconds / SECONDS_HOURS);
+//       // const minutes = Math.floor((seconds - (hours * SECONDS_HOURS)) / SECONDS_MINUTES);
+//       const minutes = Math.floor((seconds % SECONDS_HOURS) / SECONDS_MINUTES);
+//       const leftSeconds = seconds % SECONDS_MINUTES;
+//       // const leftSeconds = seconds - (hours * SECONDS_HOURS + minutes * SECONDS_MINUTES)
+
+//       const hoursText = hours ? `${hours} soat${minutes || leftSeconds ? ", " : ""}` : "";
+//       const minutesText = minutes ? `${minutes} minut${leftSeconds ? ", " : ""}` : "";
+//       const secondsText = leftSeconds ? `${leftSeconds} sekund` : "";
+
+//       result.textContent = `Result: ${hoursText + minutesText + secondsText}`;
+    });
+  
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
